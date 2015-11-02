@@ -4,3 +4,18 @@
 [submodule "vimfiles/bundle/jedi-vim"]
 	path = vimfiles/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vimfiles/bundle/syntastic"]
+	path = vimfiles/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vimfiles/bundle/vim-airline"]
+	path = vimfiles/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "vimfiles/bundle/vim-easymotion"]
+	path = vimfiles/bundle/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "vimfiles/bundle/vim-fugitive"]
+	path = vimfiles/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
