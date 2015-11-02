@@ -34,8 +34,7 @@ There are definitely some&nbsp;<code style="padding:2px 4px;font-family:Menlo,Mo
 <ul style="padding:0px;margin:0px 0px 9px 25px;list-style-position:initial;color:rgb(51,51,51);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:18px">
 <li><a href="http://nvie.com/posts/how-i-boosted-my-vim/" style="color:rgb(65,131,196);text-decoration:none" target="_blank">http://nvie.com/posts/how-i-<wbr>boosted-my-<span class="il">vim</span>/</a></li><li><a href="http://blog.sanctum.geek.nz/vim-annoyances/" style="color:rgb(65,131,196);text-decoration:none" target="_blank">http://blog.sanctum.geek.nz/<wbr><span class="il">vim</span>-annoyances/</a></li><li><a href="http://dougblack.io/words/a-good-vimrc.html" style="color:rgb(65,131,196);text-decoration:none" target="_blank">http://dougblack.io/words/a-<wbr>good-vimrc.html</a></li></ul>
 <p style="margin:0px 0px 1.2em;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.3em;color:rgb(51,51,51)">
-Attached is a copy of my&nbsp;<code style="padding:2px 4px;font-family:Menlo,Monaco,'Courier New',monospace;font-size:12px;color:rgb(221,17,68);border-radius:3px;border:1px solid rgb(225,225,232);background-color:rgb(247,247,249)">.vimrc</code>.</p>
-<p style="margin:0px 0px 1.2em;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.3em;color:rgb(51,51,51)">
+
 Really, start fairly vanilla and when you don't like something or are looking for a feature you add it or change it.</p>
 <p style="margin:0px 0px 1.2em;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.3em;color:rgb(51,51,51)">
 I think relative line numbers is a really awesome feature since you can jump lines by doing something like&nbsp;<code style="padding:2px 4px;font-family:Menlo,Monaco,'Courier New',monospace;font-size:12px;color:rgb(221,17,68);border-radius:3px;border:1px solid rgb(225,225,232);background-color:rgb(247,247,249)">10j</code>&nbsp;to
