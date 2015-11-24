@@ -70,6 +70,9 @@ map <C-l> <C-w>l
 " Syntastic setup
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_glsl_checkers = ['cgc']
+let g:syntastic_html_checkers=['tidy']
+let g:syntastic_css_checkers=['csslint']
+let g:syntastic_javascript_checkers=['eslint']
 
 " remap esc
 imap jk <Esc>
