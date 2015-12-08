@@ -2,7 +2,7 @@
 
 ## Installation
 * Run ```git clone --recursive https://github.com/BbrianWwright/Vim_Config.git``` to grab vim config and all sub-moduled  plugins
-* Move ```_vimrc```(corresponds to ```.vimrc```) and ```vimfiles``` (corresponds to ```.vim```) to your home directory (Slightly different for windows).
+* Move ```_vimrc```(corresponds to ```.vimrc```) and ```vimfiles``` (corresponds to ```.vim```) to your home directory (Slightly different for windows). Could also symlink, copy, or whatever...
 
 ## Useful Vim Links
   * http://paulherron.com/blog/vim_cheatsheet/
