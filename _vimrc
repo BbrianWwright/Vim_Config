@@ -31,6 +31,8 @@ set cursorline           " highlight current line"
 set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
 autocmd GUIEnter * set visualbell t_vb=s
 
+au FocusGained * :redraw!    " force redraw on focus
+
 syntax enable
 set background=dark
 " Trying out colorschemes, I like low contrast, and I change colors a lot.
@@ -38,7 +40,7 @@ set background=dark
 "colorscheme apprentice
 "colorscheme gruvbox
 colorscheme base16-ocean
-"colorscheme base16-paraiso   
+"colorscheme base16-paraiso
 
 " For nerd commenter
 filetype plugin on
@@ -48,11 +50,13 @@ filetype plugin on
 set scrolloff=10
 set linebreak
 
-if has('gui_win32')
-    set backupdir=E:\\VimTemp     " WINDOWS
-else
-    set backupdir=~/.vim/backup  " UNIX
-endif
+set nobackup
+
+"if has('gui_win32')
+    "set backupdir=E:\\VimTemp     " WINDOWS
+"else
+    "set backupdir=~/.vim/backup  " UNIX
+"endif
 
 set noswapfile
 set shortmess+=I
@@ -123,10 +127,10 @@ endfunction
 
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 " automatically remove trailing white spaces on python files
-autocmd FileType python autocmd FileWritePre    * :call TrimWhiteSpace()
-autocmd FileType python autocmd FileAppendPre   * :call TrimWhiteSpace()
-autocmd FileType python autocmd FilterWritePre  * :call TrimWhiteSpace()
-autocmd FileType python autocmd BufWritePre     * :call TrimWhiteSpace()
+autocmd FileWritePre    * :call TrimWhiteSpace()
+autocmd FileAppendPre   * :call TrimWhiteSpace()
+autocmd FilterWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
 
 " http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
 " setting up auto-completion with C family
