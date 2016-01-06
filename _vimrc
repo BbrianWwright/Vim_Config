@@ -28,18 +28,23 @@ set title                " change the terminal's title
 set visualbell           " don't beep pls
 set noerrorbells         " really no beeps
 set cursorline           " highlight current line"
+set mouse=a              " enable mouse
+set ttymouse=xterm2      " support mouse codes for my terminal
 set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
 autocmd GUIEnter * set visualbell t_vb=s
-
 au FocusGained * :redraw!    " force redraw on focus
+set shortmess+=I   " Disable welcome message
 
 syntax enable
+set t_Co=256
 set background=dark
 " Trying out colorschemes, I like low contrast, and I change colors a lot.
 " Here are some of my favorites
 "colorscheme apprentice
-"colorscheme gruvbox
-colorscheme base16-ocean
+"colorscheme solarized
+colorscheme gruvbox
+"let base16colorspace=256
+"colorscheme base16-ocean
 "colorscheme base16-paraiso
 
 " For nerd commenter
