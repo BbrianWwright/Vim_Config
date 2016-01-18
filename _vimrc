@@ -1,5 +1,23 @@
 "Brian Wright .vimrc
 
+" Vundle setup all for YouCompleteMe
+set nocompatible
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+" all of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
 " referencing a lot from http://nvie.com/posts/how-i-boosted-my-vim/
 set hidden	  " hide buffers instead of closing them
 set nowrap        " don't wrap lines
@@ -35,6 +53,7 @@ autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 
+" colorscheme settings
 syntax enable
 set t_Co=256
 set background=dark
@@ -46,6 +65,7 @@ colorscheme gruvbox
 "let base16colorspace=256
 "colorscheme base16-ocean
 "colorscheme base16-paraiso
+"colorscheme base16-tomorrow
 
 " For nerd commenter
 filetype plugin on
@@ -139,8 +159,8 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 
 " http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
 " setting up auto-completion with C family
-" let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-
+autocmd FileType c      let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_files/.ycm_extra_conf.py'
+autocmd FileType cpp    let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_files/.ycm_extra_conf.py'
 
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
 augroup reload_vimrc " {
@@ -149,12 +169,10 @@ augroup reload_vimrc " {
 augroup END " }
 
 " turn on matchit
-set nocompatible
-runtime macros/matchit.vim
+"runtime macros/matchit.vim
 
 " vim airline stuff
-" let g:airline_powerline_fonts = 1
-"
+ let g:airline_powerline_fonts = 1
 
 " windows specific
 if has('gui_win32')

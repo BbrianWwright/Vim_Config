@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/brianw/ccarat/cve/real_cves'
+let g:netrw_dirhist_2='/Users/brianw/doggles/test'
+let g:netrw_dirhist_3='/Users/brianw/doggles'
+let g:netrw_dirhist_4='/Users/brianw/test'
+let g:netrw_dirhist_5='/Users/brianw'
