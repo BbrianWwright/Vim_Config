@@ -52,6 +52,7 @@ set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god w
 autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
+set clipboard=unnamed    " yank and paste from vim
 
 " colorscheme settings
 syntax enable
