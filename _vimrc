@@ -62,9 +62,9 @@ set background=dark
 " Here are some of my favorites
 "colorscheme apprentice
 "colorscheme solarized
-colorscheme gruvbox
-"let base16colorspace=256
-"colorscheme base16-ocean
+"colorscheme gruvbox
+let base16colorspace=256
+colorscheme base16-ocean
 "colorscheme base16-paraiso
 "colorscheme base16-tomorrow
 
@@ -181,3 +181,11 @@ if has('gui_win32')
     set guifont=Liberation_Mono:h10:cANSI
 endif
 
+map <Leader> <Plug>(easymotion-prefix)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
