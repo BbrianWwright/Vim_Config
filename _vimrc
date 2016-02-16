@@ -54,6 +54,11 @@ au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
 
+" reload file on change,
+set autoread
+" checktime forces vim to check for changes
+au CursorHold,CursorHoldI * checktime
+
 
 " colorscheme settings
 syntax enable
