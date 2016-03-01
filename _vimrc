@@ -17,6 +17,9 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"if has('gui_win32')
+"else
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " referencing a lot from http://nvie.com/posts/how-i-boosted-my-vim/
 set hidden	  " hide buffers instead of closing them
@@ -68,6 +71,7 @@ set background=dark
 " Here are some of my favorites
 "colorscheme apprentice
 colorscheme gruvbox
+"colorscheme lucius
 "let base16colorspace=256
 "colorscheme base16-ocean
 "colorscheme base16-paraiso
