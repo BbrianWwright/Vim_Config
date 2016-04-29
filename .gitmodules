@@ -19,3 +19,12 @@
 [submodule "vimfiles/bundle/ctrlp.vim"]
 	path = vimfiles/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vimfiles/bundle/vim-repeat"]
+	path = vimfiles/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vimfiles/bundle/vim-surround"]
+	path = vimfiles/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vimfiles/bundle/tabular"]
+	path = vimfiles/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
