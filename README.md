@@ -1,10 +1,14 @@
 # Brian Wright's Vim Config
 
+
 ## Installation
 * Run ```git clone --recursive https://github.com/BbrianWwright/Vim_Config.git``` to grab vim config and all sub-moduled  plugins
 * Move ```_vimrc```(corresponds to ```.vimrc```) and ```vimfiles``` (corresponds to ```.vim```) to your home directory (Slightly different for windows). Could also symlink, copy, or whatever...
 
 YCM install should be installed seperately, this install was done on OSX
+
+## Adding new plugins
+ * (self-note) Do ```git submodule add  PLUGIN_REPO``` DON'T CLONE
 
 ## Useful Vim Links
   * http://paulherron.com/blog/vim_cheatsheet/
