@@ -17,6 +17,9 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"if has('gui_win32')
+"else
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " referencing a lot from http://nvie.com/posts/how-i-boosted-my-vim/
 set hidden	  " hide buffers instead of closing them
@@ -53,6 +56,11 @@ autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
+
+" reload file on change,
+set autoread
+" checktime forces vim to check for changes
+au CursorHold,CursorHoldI * checktime
 
 " colorscheme settings
 syntax enable
