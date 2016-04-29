@@ -54,7 +54,6 @@ au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
 
-
 " colorscheme settings
 syntax enable
 set t_Co=256
@@ -62,16 +61,15 @@ set background=dark
 " Trying out colorschemes, I like low contrast, and I change colors a lot.
 " Here are some of my favorites
 "colorscheme apprentice
-colorscheme gruvbox
-"let base16colorspace=256
-"colorscheme base16-ocean
+"colorscheme solarized
+"colorscheme gruvbox
+let base16colorspace=256
+colorscheme base16-ocean
 "colorscheme base16-paraiso
 "colorscheme base16-tomorrow
 
-
 " For nerd commenter
 filetype plugin on
-
 
 " add some space for bottom scrolling
 " http://blog.sanctum.geek.nz/vim-annoyances/
@@ -106,11 +104,9 @@ let g:syntastic_html_checkers=['tidy']
 let g:syntastic_css_checkers=['csslint']
 let g:syntastic_javascript_checkers=['eslint']
 
-
 " remap esc
 imap jk <Esc>
 imap kj <Esc>
-
 
 let mapleader = "\<Space>"
 " I remap CAPS LOCK to Ctrl on an OS level
@@ -120,7 +116,6 @@ set spell spelllang=en_us
 " space + s to toggle spell check
 nnoremap <leader>s :set spell!
 set spell!     " off on start
-
 
 " pathogen setup
 execute pathogen#infect()
@@ -174,15 +169,17 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
+" turn on matchit
+"runtime macros/matchit.vim
 
 " vim airline stuff
  let g:airline_powerline_fonts = 1
 
-
 " windows specific
 if has('gui_win32')
     set guioptions-=T  "remove toolbar
-    set guifont=Liberation_Mono:h10:cANSI
+    "set guifont=Liberation_Mono:h10:cANSI
+    set guifont=Iosevka:h10:cANSI
 endif
 
 map <Leader> <Plug>(easymotion-prefix)
