@@ -8,7 +8,10 @@
 YCM install should be installed seperately, this install was done on OSX
 
 ## Adding new plugins
- * (self-note) Do ```git submodule add  PLUGIN_REPO``` DON'T CLONE
+ * (self-note) Do ```git submodule add  PLUGIN_REPO``` STOP CLONING STUFF
+
+## Font
+ * [Iosevka](https://github.com/be5invis/Iosevka) is pretty neat
 
 ## Useful Vim Links
   * http://paulherron.com/blog/vim_cheatsheet/
