@@ -56,6 +56,7 @@ autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
+set sidescroll = 1       " only show reveal a character at a time for horizontal scrolling
 
 " reload file on change,
 set autoread
