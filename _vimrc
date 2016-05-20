@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
+Plugin '29decibel/vim-stringify'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -56,12 +57,12 @@ autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
-set sidescroll = 1       " only show reveal a character at a time for horizontal scrolling
 
 " reload file on change,
 set autoread
 " checktime forces vim to check for changes
 au CursorHold,CursorHoldI * checktime
+
 
 " colorscheme settings
 syntax enable
@@ -70,15 +71,17 @@ set background=dark
 " Trying out colorschemes, I like low contrast, and I change colors a lot.
 " Here are some of my favorites
 "colorscheme apprentice
-"colorscheme solarized
-"colorscheme gruvbox
-let base16colorspace=256
-colorscheme base16-ocean
+colorscheme gruvbox
+"colorscheme lucius
+"let base16colorspace=256
+"colorscheme base16-ocean
 "colorscheme base16-paraiso
 "colorscheme base16-tomorrow
 
+
 " For nerd commenter
 filetype plugin on
+
 
 " add some space for bottom scrolling
 " http://blog.sanctum.geek.nz/vim-annoyances/
@@ -95,6 +98,7 @@ set nobackup
 
 set noswapfile
 set shortmess+=I
+
 " no more shift
 nnoremap ; :
 
@@ -113,9 +117,11 @@ let g:syntastic_html_checkers=['tidy']
 let g:syntastic_css_checkers=['csslint']
 let g:syntastic_javascript_checkers=['eslint']
 
+
 " remap esc
 imap jk <Esc>
 imap kj <Esc>
+
 
 let mapleader = "\<Space>"
 " I remap CAPS LOCK to Ctrl on an OS level
@@ -126,10 +132,10 @@ set spell spelllang=en_us
 nnoremap <leader>s :set spell!
 set spell!     " off on start
 
+
 " pathogen setup
 execute pathogen#infect()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath' CRAZY
-
 
 " ctrlp setup
 "http://kien.github.io/ctrlp.vim/
@@ -178,17 +184,15 @@ augroup reload_vimrc " {
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-" turn on matchit
-"runtime macros/matchit.vim
 
 " vim airline stuff
  let g:airline_powerline_fonts = 1
 
+
 " windows specific
 if has('gui_win32')
     set guioptions-=T  "remove toolbar
-    "set guifont=Liberation_Mono:h10:cANSI
-    set guifont=Iosevka:h10:cANSI
+    set guifont=Liberation_Mono:h10:cANSI
 endif
 
 map <Leader> <Plug>(easymotion-prefix)
@@ -199,3 +203,7 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Vim stringify
+map <leader>g :call Stringify()<CR>
+

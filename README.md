@@ -9,6 +9,8 @@ YCM install should be installed seperately, this install was done on OSX
 
 ## Adding new plugins
  * (self-note) Do ```git submodule add  PLUGIN_REPO``` STOP CLONING STUFF
+ * ### For Vundle
+    * Just add in ```_vimrc``` and do ```:PluginInstall``` when ready
 
 ## Font
  * [Iosevka](https://github.com/be5invis/Iosevka) is pretty neat
