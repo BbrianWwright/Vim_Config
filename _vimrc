@@ -6,12 +6,9 @@ filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+" Plugins
 Plugin 'Valloric/YouCompleteMe'
 Plugin '29decibel/vim-stringify'
 " all of your Plugins must be added before the following line
@@ -42,22 +39,22 @@ set smarttab      " insert tabs on the start of a line according to
                     "    shiftwidth, not tabstop
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
-
 set history=9999         " remember more commands and search history
 set undolevels=9999      " use many muchos levels of undo, just in case...
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep pls
 set noerrorbells         " really no beeps
+set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
 set cursorline           " highlight current line"
 set mouse=a              " enable mouse
 set ttymouse=xterm2      " support mouse codes for my terminal
-set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
 autocmd GUIEnter * set visualbell t_vb=s
 au FocusGained * :redraw!    " force redraw on focus
 set shortmess+=I   " Disable welcome message
 set clipboard=unnamed    " yank and paste from vim
 set sidescroll =1        " only reveal a character one at a time for horizontal scrolling
+
 
 " reload file on change,
 set autoread
@@ -139,7 +136,6 @@ execute pathogen#infect()
 call pathogen#helptags() " generate helptags for everything in 'runtimepath' CRAZY
 
 " ctrlp setup
-"http://kien.github.io/ctrlp.vim/
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
@@ -201,18 +197,22 @@ map <Leader> <Plug>(easymotion-prefix)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
+
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+
 " Vim stringify
 map <leader>g :call Stringify()<CR>
+
 
 " Tabular mapping
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
 
 "nerdtree toggle ctrl+n
 map <C-n> :NERDTreeToggle<CR>
