@@ -4,12 +4,17 @@
 ## Installation
 * Run ```git clone --recursive https://github.com/BbrianWwright/Vim_Config.git``` to grab vim config and all sub-moduled  plugins
 * Move ```_vimrc```(corresponds to ```.vimrc```) and ```vimfiles``` (corresponds to ```.vim```) to your home directory (Slightly different for windows). Could also symlink, copy, or whatever...
-
+  * Symlink ex.
+  ``` 
+   # must be absolute
+   ln -s ~/Vim_Config/_vimrc ~/.vimrc 
+   ln -s ~/Vim_Config/vimfiles ~/.vim
+  ```
 YCM install should be installed seperately, this install was done on OSX
 
 ## Adding new plugins
  * (self-note) Do ```git submodule add  PLUGIN_REPO``` STOP CLONING STUFF
- * ### For Vundle
+ * For Vundle
     * Just add in ```_vimrc``` and do ```:PluginInstall``` when ready
 
 ## Font
