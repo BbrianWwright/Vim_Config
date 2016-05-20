@@ -6,9 +6,9 @@
 * Move ```_vimrc```(corresponds to ```.vimrc```) and ```vimfiles``` (corresponds to ```.vim```) to your home directory (Slightly different for windows). Could also symlink, copy, or whatever...
   * Symlink ex.
   ``` 
-   cd Vim_Config
-   ln -s _vimrc ~/.vimrc 
-   ln -s vimfiles ~/.vim
+   # must be absolute
+   ln -s ~/Vim_Config/_vimrc ~/.vimrc 
+   ln -s ~/Vim_Config/vimfiles ~/.vim
   ```
 YCM install should be installed seperately, this install was done on OSX
 
