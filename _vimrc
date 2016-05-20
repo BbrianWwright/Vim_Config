@@ -216,5 +216,4 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 
 "nerdtree toggle ctrl+n
 map <C-n> :NERDTreeToggle<CR>
-set modifiable           " make buffers modifiable, i like to use nerdtree for file creation/movement
 
