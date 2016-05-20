@@ -208,3 +208,13 @@ map <Leader>k <Plug>(easymotion-k)
 " Vim stringify
 map <leader>g :call Stringify()<CR>
 
+" Tabular mapping
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+"nerdtree toggle ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+set modifiable           " make buffers modifiable, i like to use nerdtree for file creation/movement
+
