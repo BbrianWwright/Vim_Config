@@ -11,10 +11,16 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'Valloric/YouCompleteMe'
 Plugin '29decibel/vim-stringify'
+Plugin 'Raimondi/delimitMate'
+"Plugin 'marijnh/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'majutsushi/tagbar'
+
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Tell YouCompleteMe which python to use
 "if has('gui_win32')
 "else
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
@@ -113,8 +119,36 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_glsl_checkers = ['cgc']
 let g:syntastic_html_checkers=['tidy']
 let g:syntastic_css_checkers=['csslint']
-let g:syntastic_javascript_checkers=['eslint']
+"let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_check_on_open=1
 
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+" Syntastic local linter support
+let g:syntastic_javascript_checkers = []
+
+function CheckJavaScriptLinter(filepath, linter)
+	if exists('b:syntastic_checkers')
+		return
+	endif
+	if filereadable(a:filepath)
+		let b:syntastic_checkers = [a:linter]
+		let {'b:syntastic_' . a:linter . '_exec'} = a:filepath
+	endif
+endfunction
+
+function SetupJavaScriptLinter()
+	let l:current_folder = expand('%:p:h')
+	let l:bin_folder = fnamemodify(syntastic#util#findFileInParent('package.json', l:current_folder), ':h')
+	let l:bin_folder = l:bin_folder . '/node_modules/.bin/'
+	call CheckJavaScriptLinter(l:bin_folder . 'standard', 'standard')
+	call CheckJavaScriptLinter(l:bin_folder . 'eslint', 'eslint')
+endfunction
+
+autocmd FileType javascript call SetupJavaScriptLinter()
 
 " remap esc
 imap jk <Esc>
@@ -217,3 +251,8 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 "nerdtree toggle ctrl+n
 map <C-n> :NERDTreeToggle<CR>
 
+" ctrl+c with line split in insert mode, helps to create function defs quick
+imap <C-c> <CR><Esc>O
+
+" javascript specific tab stops, only for work :(
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
