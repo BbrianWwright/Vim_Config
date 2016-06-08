@@ -15,7 +15,9 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'majutsushi/tagbar'
-
+Plugin 'bkad/camelcasemotion'
+"Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'ryanoasis/vim-devicons'
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -256,3 +258,9 @@ imap <C-c> <CR><Esc>O
 
 " javascript specific tab stops, only for work :(
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+" using camelcase motion plugion for default motions
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
