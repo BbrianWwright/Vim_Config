@@ -1,0 +1,91 @@
+
+"Brian Wright .vimrc
+
+" referencing a lot from http://nvie.com/posts/how-i-boosted-my-vim/
+set hidden	  " hide buffers instead of closing them
+set nowrap        " don't wrap lines
+set tabstop=4     " a tab is four spaces
+set expandtab     " insert spaces whenever tab is pressed.
+set backspace=indent,eol,start
+                    " allow backspacing over everything in insert mode
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set number        " always show line numbers
+set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch     " set show matching parenthesis
+set ignorecase    " ignore case when searching
+set smartcase     " ignore case if search pattern is all lowercase,
+                    "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to
+                    "    shiftwidth, not tabstop
+set hlsearch      " highlight search terms
+set incsearch     " show search matches as you type
+set history=9999         " remember more commands and search history
+set undolevels=9999      " use many muchos levels of undo, just in case...
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal's title
+set visualbell           " don't beep pls
+set noerrorbells         " really no beeps
+set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
+set cursorline           " highlight current line"
+set mouse=a              " enable mouse
+set ttymouse=xterm2      " support mouse codes for my terminal
+autocmd GUIEnter * set visualbell t_vb=s
+au FocusGained * :redraw!    " force redraw on focus
+set shortmess+=I   " Disable welcome message
+set clipboard=unnamed    " yank and paste from vim
+set sidescroll =1        " only reveal a character one at a time for horizontal scrolling
+
+
+" add some space for bottom scrolling
+" http://blog.sanctum.geek.nz/vim-annoyances/
+set scrolloff=10
+set linebreak
+
+set nobackup
+
+et noswapfile
+set shortmess+=I
+
+" no more shift
+nnoremap ; :
+
+
+" easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+
+" remap esc
+imap jk <Esc>
+imap kj <Esc>
+
+
+let mapleader = "\<Space>"
+" I remap CAPS LOCK to Ctrl on an OS level
+filetype plugin indent on
+set encoding=utf-8
+set spell spelllang=en_us
+" space + s to toggle spell check
+nnoremap <leader>s :set spell!
+set spell!     " off on start
+
+
+" http://www.bestofvim.com/tip/trailing-whitespace/
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+autocmd FileWritePre    * :call TrimWhiteSpace()
+autocmd FileAppendPre   * :call TrimWhiteSpace()
+autocmd FilterWritePre  * :call TrimWhiteSpace()
+autocmd BufWritePre     * :call TrimWhiteSpace()
+
+
+" ctrl+c with line split in insert mode, helps to create function defs quick
+imap <C-c> <CR><Esc>O
