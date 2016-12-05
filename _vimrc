@@ -1,6 +1,6 @@
 "Brian Wright .vimrc
 
-" Vundle setup all for YouCompleteMe
+" Vundle setup
 set nocompatible
 filetype off
 " set the runtime path to include Vundle and initialize
@@ -9,59 +9,68 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Plugins
-Plugin 'Valloric/YouCompleteMe'
 Plugin '29decibel/vim-stringify'
 Plugin 'Raimondi/delimitMate'
-"Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'majutsushi/tagbar'
 Plugin 'gorodinskiy/vim-coloresque'
-"Plugin 'severin-lemaignan/vim-minimap'
-"Plugin 'ryanoasis/vim-devicons'
+Plugin 'dkprice/vim-easygrep'
+Plugin 'maralla/completor.vim'
+Plugin 'elzr/vim-json'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'godlygeek/tabular'
+Plugin 'easymotion/vim-easymotion'
+
+
 " all of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Tell YouCompleteMe which python to use
-"if has('gui_win32')
-"else
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" completer settings
+let g:completer_python_binary= '/usr/bin/python'
+let g:completer_clang_binary= '/usr/bin/clang'
 
 " referencing a lot from http://nvie.com/posts/how-i-boosted-my-vim/
-set hidden	  " hide buffers instead of closing them
-set nowrap        " don't wrap lines
-set tabstop=4     " a tab is four spaces
-set expandtab     " insert spaces whenever tab is pressed.
+set hidden    " hide buffers instead of closing them
+set nowrap    " don't wrap lines
+set tabstop=4 " a tab is four spaces
+set expandtab " insert spaces whenever tab is pressed.
 set backspace=indent,eol,start
-                    " allow backspacing over everything in insert mode
-set autoindent    " always set autoindenting on
-set copyindent    " copy the previous indentation on autoindenting
-set number        " always show line numbers
-set shiftwidth=4  " number of spaces to use for autoindenting
-set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set showmatch     " set show matching parenthesis
-set ignorecase    " ignore case when searching
-set smartcase     " ignore case if search pattern is all lowercase,
-                    "    case-sensitive otherwise
-set smarttab      " insert tabs on the start of a line according to
-                    "    shiftwidth, not tabstop
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you type
-set history=9999         " remember more commands and search history
-set undolevels=9999      " use many muchos levels of undo, just in case...
+                     " allow backspacing over everything in insert mode
+set autoindent       " always set autoindenting on
+set copyindent       " copy the previous indentation on autoindenting
+set number           " always show line numbers
+set shiftwidth=4     " number of spaces to use for autoindenting
+set shiftround       " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch        " set show matching parenthesis
+set ignorecase       " ignore case when searching
+set smartcase        " ignore case if search pattern is all lowercase,
+                     " case-sensitive otherwise
+set smarttab         " insert tabs on the start of a line according to
+                     " shiftwidth, not tabstop
+set hlsearch         " highlight search terms
+set incsearch        " show search matches as you type
+set history=9999     " remember more commands and search history
+set undolevels=9999  " use many muchos levels of undo, just in case...
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set title                " change the terminal's title
-set visualbell           " don't beep pls
-set noerrorbells         " really no beeps
-set noerrorbells visualbell t_vb=     " no beeps or flashes ever ever ever god why
-set cursorline           " highlight current line"
-set mouse=a              " enable mouse
-set ttymouse=xterm2      " support mouse codes for my terminal
+set title                         " change the terminal's title
+set visualbell                    " don't beep pls
+set noerrorbells                  " really no beeps
+set noerrorbells visualbell t_vb= " no beeps or flashes ever ever ever god why
+set cursorline                    " highlight current line                     "
+set mouse=a                       " enable mouse
+set ttymouse=xterm2               " support mouse codes for my terminal
 autocmd GUIEnter * set visualbell t_vb=s
-au FocusGained * :redraw!    " force redraw on focus
-set shortmess+=I   " Disable welcome message
-set clipboard=unnamed    " yank and paste from vim
-set sidescroll =1        " only reveal a character one at a time for horizontal scrolling
+au FocusGained * :redraw! " force redraw on focus
+set shortmess+=I          " Disable welcome message
+set clipboard=unnamed     " yank and paste from vim
+set sidescroll =1         " only reveal a character one at a time for horizontal scrolling
 
 
 " reload file on change,
@@ -78,6 +87,7 @@ set background=dark
 " Here are some of my favorites
 "colorscheme apprentice
 colorscheme gruvbox
+"colorscheme tender
 
 "colorscheme lucius
 "let base16colorspace=256
@@ -207,10 +217,6 @@ autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
 
-" http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
-" setting up auto-completion with C family
-autocmd FileType c      let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_files/.ycm_extra_conf.py'
-autocmd FileType cpp    let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_files/.ycm_extra_conf.py'
 
 " http://www.bestofvim.com/tip/auto-reload-your-vimrc/
 augroup reload_vimrc " {
@@ -258,5 +264,5 @@ map <C-n> :NERDTreeToggle<CR>
 imap <C-c> <CR><Esc>O
 
 " javascript specific tab stops, only for work :(
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+"autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
