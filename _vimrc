@@ -10,12 +10,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin '29decibel/vim-stringify'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'pangloss/vim-javascript'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'maralla/completor.vim'
-Plugin 'elzr/vim-json'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -26,6 +27,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'ajmwagar/vim-dues'
 
 
 " all of your Plugins must be added before the following line
@@ -72,12 +74,18 @@ set shortmess+=I          " Disable welcome message
 set clipboard=unnamed     " yank and paste from vim
 set sidescroll =1         " only reveal a character one at a time for horizontal scrolling
 
+" Completor settings
+" Tab select completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " reload file on change,
 set autoread
 " checktime forces vim to check for changes
 au CursorHold,CursorHoldI * checktime
 
+set termguicolors
 
 " colorscheme settings
 syntax enable
@@ -85,8 +93,9 @@ set t_Co=256
 set background=dark
 " Trying out colorschemes, I like low contrast, and I change colors a lot.
 " Here are some of my favorites
-"colorscheme apprentice
-colorscheme gruvbox
+"colors apprentice
+colorscheme dues
+"colorscheme gruvbox
 "colorscheme tender
 
 "colorscheme lucius
@@ -265,4 +274,9 @@ imap <C-c> <CR><Esc>O
 
 " javascript specific tab stops, only for work :(
 "autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+" Using ag instead of ack for ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
