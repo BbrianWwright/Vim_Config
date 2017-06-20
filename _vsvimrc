@@ -45,7 +45,7 @@ set linebreak
 
 set nobackup
 
-et noswapfile
+set noswapfile
 set shortmess+=I
 
 " no more shift
