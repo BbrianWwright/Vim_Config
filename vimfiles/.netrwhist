@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/brianw/ccarat/cve/real_cves'
-let g:netrw_dirhist_2='/Users/brianw/doggles/test'
-let g:netrw_dirhist_3='/Users/brianw/doggles'
-let g:netrw_dirhist_4='/Users/brianw/test'
-let g:netrw_dirhist_5='/Users/brianw'
-let g:netrw_dirhist_6='/Users/brianw/ranger-document/ranger/scene/exo'
-let g:netrw_dirhist_7='/Users/brianw/misc/Iosevka/dist/01.iosevka'
