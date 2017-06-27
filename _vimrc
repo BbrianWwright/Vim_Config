@@ -10,13 +10,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin '29decibel/vim-stringify'
-"Plugin 'Raimondi/delimitMate'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'pangloss/vim-javascript'
 Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'dkprice/vim-easygrep'
+Plugin 'jremmen/vim-ripgrep'
 Plugin 'maralla/completor.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -28,6 +26,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ajmwagar/vim-dues'
+Plugin 'wellle/targets.vim'
 
 
 " all of your Plugins must be added before the following line
@@ -138,14 +137,19 @@ map <C-l> <C-w>l
 
 " Syntastic setup
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args='--ignore=E241,E116,E265,E261,E221,E128,E501,E303,E251,E225,E202,E302,E203'
+
 let g:syntastic_glsl_checkers = ['cgc']
 let g:syntastic_html_checkers=['tidy']
 let g:syntastic_css_checkers=['csslint']
 "let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq = 0
+
 
 let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_style_error_symbol = '⚠️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
 
@@ -187,13 +191,15 @@ nnoremap <leader>s :set spell!
 set spell!     " off on start
 
 
-" pathogen setup
-execute pathogen#infect()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath' CRAZY
-
 " ctrlp setup
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" richgrep setup
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_match_window_reversed = 0
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
@@ -206,7 +212,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
 autocmd FocusLost   * :set number
 autocmd FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
@@ -219,8 +224,7 @@ function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
 
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
-" automatically remove trailing white spaces on python files
+" automatically remove trailing white spaces on files
 autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
@@ -268,6 +272,14 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 
 "nerdtree toggle ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+
+function! NERDTreeRefresh()
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
+endfunction
+
+autocmd BufEnter * call NERDTreeRefresh()
 
 " ctrl+c with line split in insert mode, helps to create function defs quick
 imap <C-c> <CR><Esc>O
