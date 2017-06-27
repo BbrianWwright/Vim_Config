@@ -26,6 +26,7 @@
   * http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
   * http://www.bestofvim.com/tip/trailing-whitespace/
   * http://www.bestofvim.com/tip/auto-reload-your-vimrc/
+  * https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html
 
 ### Shamelessly copying a nice email a mentor of mine wrote to me:
 So when first starting to learn&nbsp;<code style="padding:2px 4px;font-family:Menlo,Monaco,'Courier New',monospace;font-size:12px;color:rgb(221,17,68);border-radius:3px;border:1px solid rgb(225,225,232);background-color:rgb(247,247,249)"><span class="il">vim</span></code>&nbsp;I
